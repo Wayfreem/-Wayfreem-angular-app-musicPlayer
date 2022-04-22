@@ -1,0 +1,85 @@
+<div [@childAnimation]="data.isPlay ? 'sideUp' : 'sideDown'" class="container">
+
+  <div class="nav">
+    <div (click)="goBack()">
+      <i nz-icon nzType="left" nzTheme="outline"></i>
+    </div>
+  </div>
+
+  <div class="title">
+    <h6 nz-title class="audio-name">梁宁-产品思维课</h6>
+    <h4 nz-title class="audio-title">{{title}}</h4>
+  </div>
+
+  <div class="audio-img">
+    <nz-empty nzNotFoundContent=""></nz-empty>
+  </div>
+
+  <div class="audio-control">
+    <div class="play-times">
+      <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+        {{currentPlayRate}}
+        <i nz-icon nzType="down"></i>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item *ngFor="let times of playTimes" (click)="playbackRate(times)">{{times.name}}</li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+  </div>
+
+  <div class="audio-bar">
+    <div class="progress">
+      <div class="text-start">
+        <span class="start">{{startTime}}</span>
+      </div>
+      <div class="progress-bar" (click)="progressClick($event)">
+        <div #progressBarLoad class="loading"></div>
+        <div #progressBarElement class="now"></div>
+      </div>
+      <div class="text-end">
+        <span class="end">{{endTime}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audio-btn">
+
+    <div class="btn-text">
+      <button class="btn-small" nz-button nzType="link" (click)="showList()">
+        <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+      </button>
+      <div class="text">播放列表</div>
+    </div>
+
+    <!--prev-->
+    <button class="btn-middle" nz-button nzType="link" (click)="prev()">
+      <i nz-icon nzType="step-backward" nzTheme="outline"></i>
+    </button>
+
+    <!--play-->
+    <button class="btn-large" nz-button nzType="link" *ngIf="isPlay" (click)="play()">
+      <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+    </button>
+
+    <!--pause-->
+    <button class="btn-large" nz-button nzType="link" *ngIf="!isPlay" (click)="pause()">
+      <i nz-icon nzType="pause" nzTheme="outline"></i>
+    </button>
+
+    <!--next-->
+    <button class="btn-middle" nz-button nzType="link" (click)="next()">
+      <i nz-icon nzType="step-forward" nzTheme="outline"></i>
+    </button>
+
+    <div class="btn-text">
+      <button class="btn-small read" nz-button nzType="link" (click)="read()">
+        <i nz-icon nzType="read" nzTheme="outline"></i>
+      </button>
+      <div class="text">文稿</div>
+    </div>
+  </div>
+</div>
+
+<audio controls preload="auto" #audioElement hidden></audio>

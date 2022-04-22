@@ -1,0 +1,75 @@
+<div class="container" >
+
+  <div class="carousel">
+    <nz-carousel nzAutoPlay>
+      <div nz-carousel-content *ngFor="let index of array">
+        <h3>{{ index }}</h3>
+      </div>
+    </nz-carousel>
+  </div>
+
+  <div class="grid-guide">
+    <!-- 九宫格布局 -->
+
+      <div class="gird-guide-row" nz-row nzType="flex" nzJustify="center">
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text" (click)="change()">产品思维</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">商业</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">自我提升</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">金融学</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">心理学</div>
+        </div>
+      </div>
+
+      <div class="gird-guide-row" nz-row nzType="flex" nzJustify="center">
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">年度报告</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">免费专区</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">五道口</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">得到大学</div>
+        </div>
+        <div class="icon" nz-col nzSpan="4">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+          <div class="text">全部分类</div>
+        </div>
+      </div>
+
+  </div>
+
+
+  <div class="">
+    <!-- 拖动布局 -->
+  </div>
+
+</div>
+
+<div class="player" >
+  <!-- 播放器 -->
+  <app-play></app-play>
+
+  <!-- mini 播放器 -->
+</div>
+
