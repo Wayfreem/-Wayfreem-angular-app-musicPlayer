@@ -1,0 +1,15 @@
+<nz-card>
+
+<div class="title">
+    <h6 nz-title class="audio-name">梁宁-产品思维课</h6>
+    <h4 nz-title class="audio-title">
+      <a [routerLink]="'/album/' + song.album.id"></a>
+    </h4>
+  </div>
+
+  <div class="audio-img">
+    <nz-empty nzNotFoundContent=""></nz-empty>
+  </div>
+  {{song|json}}
+  <app-article [data]="song.imgs"></app-article>
+</nz-card>

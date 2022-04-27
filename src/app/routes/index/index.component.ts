@@ -26,24 +26,10 @@ export class IndexComponent implements OnInit {
 
   array = [1, 2, 3, 4];
 
-  // todo 暂时未完成
-  data = {
-    id: '',
-    name: '',
-    author: '',
-    title: '',
-    imageUrl: '',
-    isPlay: false
-  };
-
   constructor(private playService: PlayStateService) { }
 
   ngOnInit() {
   }
 
-  change() {
-    this.data.isPlay = !this.data.isPlay ;
-    this.playService.changePlay(this.data);
-  }
-
+  // TODO 跳转查询结果界面
 }

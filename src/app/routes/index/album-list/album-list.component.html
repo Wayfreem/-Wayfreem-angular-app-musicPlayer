@@ -1,0 +1,34 @@
+
+<div class="gird-guide-row" nz-row nzType="flex" nzJustify="center">
+  <div class="contain" nz-col nzSpan="20">
+    <nz-list
+      class="loadMore-list"
+      [nzDataSource]="data"
+      [nzItemLayout]="'horizontal'"
+      [nzLoading]="isLoading"
+      [nzRenderItem]="item"
+      [nzLoadMore]="loading"
+    >
+      <ng-template #item let-item>
+        <nz-list-item>
+          <nz-skeleton [nzAvatar]="false" [nzActive]="true" [nzTitle]="false" [nzLoading]="item.loading">
+            <a [routerLink]="'/album/' + item.id ">
+              <nz-list-item-meta
+                [nzTitle]="item.name"
+                nzAvatar=""
+                [nzDescription]="item.author"
+              >
+              </nz-list-item-meta>
+            </a>
+          </nz-skeleton>
+        </nz-list-item>
+      </ng-template>
+      <ng-template #loading>
+        <div class="loadmore">
+          <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isLoading"></i>
+        </div>
+      </ng-template>
+    </nz-list>
+  </div>
+
+</div>

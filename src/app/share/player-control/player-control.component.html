@@ -1,0 +1,77 @@
+<div class="player-control-container" nz-row nzType="flex" nzJustify="center">
+  <div class="container" nz-col nzSpan="20">
+    <!--  // 播放控制-->
+    <div class="audio-btn">
+      <!--prev-->
+      <button nzSize="large" nz-button nzType="link" style="font-size: 20px" (click)="prev()">
+        <i nz-icon nzType="step-backward" nzTheme="outline"></i>
+      </button>
+
+      <!--play-->
+      <button nzSize="default" nz-button nzType="link" style="font-size: 20px" *ngIf="!isPlaying" (click)="play()">
+        <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+      </button>
+
+      <!--pause-->
+      <button nzSize="default" nz-button nzType="link" style="font-size: 20px" *ngIf="isPlaying" (click)="pause()">
+        <i nz-icon nzType="pause" nzTheme="outline"></i>
+      </button>
+
+      <!--next-->
+      <button nzSize="default" nz-button nzType="link" style="font-size: 20px" (click)="next()">
+        <i nz-icon nzType="step-forward" nzTheme="outline"></i>
+      </button>
+    </div>
+
+    <!--  // 歌曲详情-->
+    <div class="detail">
+
+      <div class="detail-info">
+        <!--    // 标题-->
+        <div class="detail-info-title">
+          <a [routerLink]="'/song/' + currentPlay.id">{{currentPlay.name}} - {{album.name}}</a>
+        </div>
+        <!--    // 时间-->
+        <div class="detail-info-time">
+          <div class="text-time" style="color: #ffffff; padding-right: 8px">
+            {{startTime}} - {{endTime}}
+          </div>
+          <div class="play-rate">
+            <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+              {{currentPlayRate}}
+              <i nz-icon nzType="down"></i>
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item *ngFor="let times of playTimes" (click)="playbackRate(times)">{{times.name}}</li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="detail-progress">
+        <div class="progress-bar" (click)="progressClick($event)">
+          <div #progressBarLoad class="loading"></div>
+          <div #progressBarElement class="now"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 查看列表和文章 -->
+    <div class="check">
+      <div class="btn-text">
+        <button class="btn-small" nz-button nzType="link" style="font-size: 20px" (click)="showPlayList()">
+          <i nz-icon nzType="file-text" nzTheme="outline"></i>
+        </button>
+      </div>
+      <div class="btn-text">
+        <button class="btn-small" nz-button nzType="link" style="font-size: 20px" (click)="showPlayList()">
+          <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

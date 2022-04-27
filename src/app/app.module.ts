@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import {PlayerComponent} from './share/player/player.component';
+import {ShareModule} from './share/share.module';
 
 
 registerLocaleData(zh);
@@ -22,6 +24,7 @@ registerLocaleData(zh);
     BrowserModule,
     AppRoutingModule,
     NgZorroAntdModule,
+    ShareModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule

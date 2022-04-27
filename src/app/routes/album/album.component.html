@@ -1,0 +1,26 @@
+<nz-card>
+  <h1>{{album.name}}</h1>
+  <ul
+    nz-list
+    [nzDataSource]="album.songList"
+    nzBordered
+    nzSize="small"
+    [nzRenderItem]="playItem"
+  >
+    <ng-template #playItem let-item>
+      <li nz-list-item [nzActions]="[opAction]" [nzContent]="item" nzNoFlex>
+          <span>
+            {{item.name}}
+          </span>
+      </li>
+      <ng-template #opAction>
+        <a (click)="play(item)">
+          <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+        </a>
+      </ng-template>
+    </ng-template>
+  </ul>
+</nz-card>
+
+
+
